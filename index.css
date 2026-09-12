@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #faf7f0;
+  overflow: hidden;
+}
+
+/* Leaflet map overrides */
+.leaflet-container {
+  background: #e9e1d0 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(250, 247, 240, 0.7) !important;
+  font-size: 9px !important;
+  color: #71717a !important;
+  border-radius: 4px 0 0 0 !important;
+}
+
+.leaflet-control-attribution a {
+  color: #15803d !important;
+}
+
+.leaflet-control-zoom {
+  display: none !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+/* Climate overlay pulse */
+@keyframes overlayPulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.55; }
+}
+
+.climate-overlay-pulse {
+  animation: overlayPulse 4s ease-in-out infinite;
+}
+
+/* Route flow animation */
+@keyframes flowDash {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -40; }
+}
+
+.route-flow {
+  animation: flowDash 1.5s linear infinite;
+}
+
+/* Marker pulse */
+@keyframes markerPulseRing {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+.marker-pulse-ring {
+  animation: markerPulseRing 2s ease-out infinite;
+}
+
+/* Number count transition */
+.number-transition {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glass panel */
+.glass-panel {
+  background: rgba(253, 252, 248, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Loading shimmer */
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(243, 238, 226, 0.5) 0%,
+    rgba(243, 238, 226, 0.9) 50%,
+    rgba(243, 238, 226, 0.5) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerSlide 1.5s linear infinite;
+}
+
+@keyframes shimmerSlide {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
