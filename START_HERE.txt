@@ -1,0 +1,44 @@
+CLIMATEROUTE FRONTEND
+=====================
+
+1. Keep your existing ClimateRoute FastAPI backend running on:
+   http://127.0.0.1:8000
+
+2. Open this frontend folder in VS Code.
+
+3. Run:
+   npm install
+   npm run dev
+
+4. Open the Vite URL shown in the terminal (usually http://localhost:5173).
+
+5. The frontend sends:
+   POST /route
+   to the FastAPI backend.
+
+Request:
+{
+  "start": "Delhi",
+  "destination": "Noida",
+  "vehicle": "car",
+  "departure_time": "2pm"
+}
+
+6. If your backend is hosted somewhere else, create .env from .env.example and set:
+   VITE_API_URL=http://YOUR-BACKEND-HOST:8000
+
+WHAT WAS CHANGED
+----------------
+- Replaced the old mock route service with a real POST /route integration.
+- Normalized the exact FastAPI response fields: time, distance, shade, heat,
+  traffic, air_quality, energy, climate_score, recommended_route and reason.
+- Kept the existing polished map visual route paths because the current backend
+  does not return road geometry/coordinates.
+- Added API error handling.
+- Kept the existing responsive UI, climate score, route cards, assistant,
+  loading animation and map.
+
+ZIP CONTENTS
+------------
+This ZIP is frontend-only. It intentionally does NOT include node_modules,
+dist, .git, or the Python backend/virtual environment.
